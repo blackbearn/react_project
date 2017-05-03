@@ -13,6 +13,16 @@
 9. sass
 10. axios
 11. ant-design
-12. eCharts/recharts
+12. echarts/recharts
 13. d3
 14. eslint
+
+webpack插件
+1. friendly-errors-webpack-plugin
+2. html-webpack-plugin
+3. clean-webpack-plugin
+4. copy-webpack-plugin
+5. optimize-css-assets-webpack-plugin
+6. extract-text-webpack-plugin
+7. webpack-merge
+8. react-hot-loader

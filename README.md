@@ -26,3 +26,9 @@ webpack插件
 6. extract-text-webpack-plugin
 7. webpack-merge
 8. react-hot-loader
+
+待安装
+1. babel相关
+2. webpack-dev-server相关
+
+ ##**prepare to finish webpack environment**

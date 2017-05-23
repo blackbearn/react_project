@@ -29,7 +29,11 @@
     "eslint:recommended"
   ],
   "rules": {
-    // 自定义规则
+    //# 规则，0/off:关闭规则; 1/warn:开启规则，使用警告级别的错误，不会导致程序退出; 2/error: 开启规则，使用错误级别的错误，当触发的时候，程序会退出。
+    "no-unused-vars": 0,
+    "import/named": 0,
+    "import/no-named-as-default": 0,
+    "react/jsx-wrap-multilines": 1,
     "no-empty": [
       "error",
       {

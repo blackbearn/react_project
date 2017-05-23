@@ -1,4 +1,4 @@
-module.exports = () => ({
+module.exports = {
     // The list of plugins for PostCSS
     // https://github.com/postcss/postcss
     plugins: [
@@ -6,4 +6,4 @@ module.exports = () => ({
         // https://github.com/postcss/autoprefixer
         require('autoprefixer')(/* package.json/browserslist */),
     ],
-});
+};

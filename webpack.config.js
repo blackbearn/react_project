@@ -1,16 +1,14 @@
-const configuration = require('./build/base');
 const webpack = require('webpack');
 
-let compiler = webpack(configuration);
-
-compiler.apply(new webpack.ProgressPlugin());
-
-compiler.run(function (err, stats) {
-});
-
-// module.exports = configuration;
-
 module.exports = function (env) {
-    console.warn({env});
+    const webpackConfig = './build/' + env + '.js';
+    const configuration = require(webpackConfig)();
+
+    let compiler = webpack(configuration);
+
+    compiler.apply(new webpack.ProgressPlugin());
+
+    compiler.run(function (err, stats) {
+    });
     return configuration;
 };

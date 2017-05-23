@@ -17,6 +17,8 @@
     "transform-runtime",
     "transform-decorators-legacy",
     "react-hot-loader/babel",
+    "transform-async-to-generator",
+    "transform-regenerator",
     [
       "import",
       {

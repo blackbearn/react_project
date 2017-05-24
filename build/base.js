@@ -5,9 +5,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     target: 'web',
     output: {
-        filename: '[name].[chunkhash:8].min.js',
+        filename: 'js/[name].[chunkhash:8].min.js',
         path: path.resolve('./dist'),
-        chunkFilename: "[name].[chunkhash:8].min.js"
+        chunkFilename: "js/[name].[chunkhash:8].min.js"
     },
     module: {
         rules: [
@@ -69,6 +69,7 @@ module.exports = {
             }
         ]
     },
+    context: path.resolve("./"),
     resolve: {
         modules: ['node_modules', path.resolve('./node_modules')],
         extensions: ['.web.tsx', '.web.ts', '.web.jsx', '.web.js', '.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.less'],
@@ -80,7 +81,7 @@ module.exports = {
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
-            filename: 'vendor.[hash].min.js',
+            filename: 'js/vendor.[hash].min.js',
             minChunks: function (module) {
                 // 该配置假定你引入的 vendor 存在于 node_modules 目录中
                 return module.context && module.context.indexOf('node_modules') !== -1;
@@ -97,7 +98,7 @@ module.exports = {
             entryOnly: true
         }),
         new ExtractTextPlugin({
-            filename: "css/[name].[contenthash].css",
+            filename: "css/style.[contenthash].css",
             disable: false,
             allChunks: true
         })

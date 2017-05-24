@@ -35,16 +35,18 @@ module.exports = function () {
         devServer: {
             noInfo: true,
             port: '5566',
-            inline: true,
             hot: true,
             quiet: true,
             compress: true,
-            clientLogLevel: 'none',
             watchContentBase: true,
             // stats: 'minimal',  //和noInfo不共用
             contentBase: path.resolve("./dist"),
-            publicPath: '/'
+            publicPath: '/',
             // 确保 publicPath 总是以斜杠(/)开头和结尾。
+            overlay: {
+                warnings: true,
+                errors: true
+            }
         },
         plugins: [
             new webpack.NoEmitOnErrorsPlugin(),

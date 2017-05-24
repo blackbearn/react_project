@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const webpack = require('webpack'); //to access built-in plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const theme = require('../theme');
 
 module.exports = {
     target: 'web',

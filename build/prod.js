@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack'); //to access built-in plugins
 const Merge = require('webpack-merge');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const CommonConfig = require('./base.js');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -34,7 +35,7 @@ module.exports = function () {
             }),
             new webpack.optimize.UglifyJsPlugin({
                 beautify: false,
-                sourceMap: true,
+                sourceMap: false,
                 mangle: {
                     screw_ie8: true,
                     keep_fnames: true
@@ -45,7 +46,29 @@ module.exports = function () {
                     drop_console: true,
                 },
                 comments: false
+            }),
+
+            new HtmlWebpackPlugin({
+                title: 'react-project',
+                filename: 'index.html',
+                template: './index.html',
+                inject: true,
+                minify: {
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    removeRedundantAttributes: true,
+                    useShortDoctype: true,
+                    removeEmptyAttributes: true,
+                    removeStyleLinkTypeAttributes: true,
+                    keepClosingSlash: true,
+                    minifyJS: true,
+                    minifyCSS: true,
+                    minifyURLs: true,
+                },
+                favicon: '',
+                hash: false,
+                showErrors: true
             })
         ]
-    })
+    });
 };

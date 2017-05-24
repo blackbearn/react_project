@@ -1,5 +1,6 @@
 const webpack = require('webpack'); //to access built-in plugins
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const Merge = require('webpack-merge');
 const path = require('path');
 const CommonConfig = require('./base.js');
@@ -30,16 +31,19 @@ module.exports = function () {
             publicPath: '/'
             // 输出解析文件的目录，url 相对于 HTML 页面
         },
-        devtool: 'cheap-module-source-map',
+        devtool: '#cheap-module-eval-source-map',
         devServer: {
-            compress: false, //压缩
             noInfo: true,
             port: '5566',
             inline: true,
             hot: true,
+            quiet: true,
+            compress: true,
+            clientLogLevel: 'none',
+            watchContentBase: true,
             // stats: 'minimal',  //和noInfo不共用
             contentBase: path.resolve("./dist"),
-            publicPath: "/"
+            publicPath: '/'
             // 确保 publicPath 总是以斜杠(/)开头和结尾。
         },
         plugins: [
@@ -52,10 +56,12 @@ module.exports = function () {
             // 开启全局的模块热替换(HMR)
             new webpack.NamedModulesPlugin(),
             // 当模块热替换(HMR)时在浏览器控制台输出对用户更友好的模块名字信息
-            new webpack.LoaderOptionsPlugin({
-                minimize: true,
-                debug: false
+            new HtmlWebpackPlugin({
+                title: 'react-project',
+                filename: 'index.html',
+                template: './index.html',
+                inject: true
             })
         ]
-    })
+    });
 };

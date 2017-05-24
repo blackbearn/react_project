@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const webpack = require('webpack'); //to access built-in plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -14,11 +13,17 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                enforce: "pre",
-                loader: "eslint-loader",
-                options: {
-                    formatter: require('eslint-friendly-formatter')
-                }
+                enforce: 'pre',  // 在babel-loader对源码进行编译前进行lint的检查
+                exclude: /node_modules/,
+                include: path.resolve('./src'),
+                use: [
+                    {
+                        options: {
+                            formatter: require('eslint-friendly-formatter')
+                        },
+                        loader: 'eslint-loader'
+                    },
+                ],
             },
             {
                 test: /\.css$/,
@@ -47,12 +52,12 @@ module.exports = {
                 })
             },
             {
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
                 loader: 'url-loader',
-                query: {
+                options: {
                     limit: 10000,
-                    name: 'img/[name].[hash:7].[ext]'
-                }
+                    name: 'image/[name].[hash:8].[ext]',
+                },
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -67,23 +72,12 @@ module.exports = {
     resolve: {
         modules: ['node_modules', path.resolve('./node_modules')],
         extensions: ['.web.tsx', '.web.ts', '.web.jsx', '.web.js', '.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.less'],
+        alias: {
+            '@': path.resolve('./src'),
+            '~': path.resolve('./node_modules')
+        }
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            title: 'react-project',
-            filename: 'index.html',
-            template: './index.html',
-            inject: true,
-            minify: {
-                "removeAttributeQuotes": true,
-                "removeComments": true,
-                "removeEmptyAttributes": true,
-                "collapseWhitespace": true
-            },
-            favicon: '',
-            hash: false,
-            showErrors: true
-        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             filename: 'vendor.[hash].min.js',
@@ -103,7 +97,7 @@ module.exports = {
             entryOnly: true
         }),
         new ExtractTextPlugin({
-            filename: "bundle.css",
+            filename: "css/[name].[contenthash].css",
             disable: false,
             allChunks: true
         })

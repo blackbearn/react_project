@@ -1,5 +1,4 @@
 const webpack = require('webpack'); //to access built-in plugins
-const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const Merge = require('webpack-merge');
 const path = require('path');
@@ -50,7 +49,6 @@ module.exports = function () {
         },
         plugins: [
             new webpack.NoEmitOnErrorsPlugin(),
-            new FriendlyErrorsPlugin(),
             new webpack.DefinePlugin({
                 'process.env.NODE_ENV': JSON.stringify('dev')
             }),

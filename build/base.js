@@ -16,14 +16,7 @@ module.exports = {
                 enforce: 'pre',  // 在babel-loader对源码进行编译前进行lint的检查
                 exclude: /node_modules/,
                 include: path.resolve('./src'),
-                use: [
-                    {
-                        options: {
-                            formatter: require('eslint-friendly-formatter')
-                        },
-                        loader: 'eslint-loader'
-                    },
-                ],
+                loader: 'eslint-loader'
             },
             {
                 test: /\.css$/,

@@ -9,6 +9,7 @@ const App = () => (
         <i className="anticon anticon-windows"/>
         <Icon type="smile"/>
         <i className="anticon anticon-smile"/>
+        <i className="el-icon-iconfont-tianjia"/>
     </div>
 );
 

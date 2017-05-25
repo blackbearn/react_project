@@ -60,7 +60,7 @@ module.exports = {
                 loader: 'url-loader',
                 query: {
                     limit: 10000,
-                    name: 'fonts/[name].[hash:7].[ext]'
+                    name: './iconfont/[name].[hash:7].[ext]'
                 }
             }
         ]

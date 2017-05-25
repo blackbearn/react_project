@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack'); //to access built-in plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     target: 'web',
@@ -82,6 +83,11 @@ module.exports = {
                 return module.context && module.context.indexOf('node_modules') !== -1;
             }
         }),
+        //拷贝文件
+        new CopyWebpackPlugin([{
+            from: './iconfont/iconfont.*',
+            to: './',
+        }]),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false

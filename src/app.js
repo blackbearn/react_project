@@ -5,11 +5,8 @@ const App = () => (
     <div className="kidding">
         <Button type="primary">click</Button>
         <h2>Hello！@！</h2>
-        <i className="iconfont icon-tianjia"/>
-        <i className="anticon anticon-windows"/>
+        <i className="iconfont iconfont-tianjia"/>
         <Icon type="smile"/>
-        <i className="anticon anticon-smile"/>
-        <i className="el-icon-iconfont-tianjia"/>
     </div>
 );
 

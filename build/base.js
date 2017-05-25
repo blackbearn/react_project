@@ -56,11 +56,11 @@ module.exports = {
                 },
             },
             {
-                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
                 loader: 'url-loader',
                 query: {
                     limit: 10000,
-                    name: 'fonts/[name].[hash:7].[ext]'
+                    name: './iconfont/[name].[hash:7].[ext]'
                 }
             }
         ]
@@ -70,8 +70,7 @@ module.exports = {
         modules: ['node_modules', path.resolve('./node_modules')],
         extensions: ['.web.tsx', '.web.ts', '.web.jsx', '.web.js', '.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.less'],
         alias: {
-            '@': path.resolve('./src'),
-            '~': path.resolve('./node_modules')
+            '@': path.resolve('./src')
         }
     },
     plugins: [

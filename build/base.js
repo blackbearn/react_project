@@ -50,18 +50,25 @@ module.exports = {
             },
             {
                 test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-                loader: 'url-loader',
-                options: {
-                    limit: 10000,
-                    name: './image/[name].[hash:8].[ext]',
-                },
+                use: [
+                    {
+                        loader: 'url-loader',
+                        query: {
+                            limit: 10000,
+                            name: './image/[name].[hash:8].[ext]',
+                            publicPath: '../'
+                        },
+                    },
+                    "image-webpack-loader"
+                ]
             },
             {
                 test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
                 loader: 'url-loader',
                 query: {
                     limit: 10000,
-                    name: './iconfont/[name].[hash:7].[ext]'
+                    name: './iconfont/[name].[hash:7].[ext]',
+                    publicPath: '../'
                 }
             }
         ]
@@ -84,10 +91,10 @@ module.exports = {
             }
         }),
         //拷贝文件
-        new CopyWebpackPlugin([{
-            from: './iconfont/iconfont.*',
-            to: './',
-        }]),
+        // new CopyWebpackPlugin([{
+        //     from: './iconfont/iconfont.*',
+        //     to: './',
+        // }]),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false

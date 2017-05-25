@@ -2,6 +2,7 @@ const webpack = require('webpack'); //to access built-in plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const Merge = require('webpack-merge');
 const path = require('path');
+const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const CommonConfig = require('./base.js');
 
 module.exports = function () {
@@ -30,12 +31,12 @@ module.exports = function () {
             publicPath: '/'
             // 输出解析文件的目录，url 相对于 HTML 页面
         },
-        devtool: '#cheap-module-eval-source-map',
+        devtool: 'cheap-module-eval-source-map',
         devServer: {
             noInfo: true,
             port: '5566',
             hot: true,
-            quiet: true,
+            // quiet: true,
             compress: true,
             watchContentBase: true,
             // stats: 'minimal',  //和noInfo不共用
@@ -48,6 +49,10 @@ module.exports = function () {
             }
         },
         plugins: [
+            //自动打开浏览器
+            new OpenBrowserPlugin({
+                url: 'http://localhost:5566'
+            }),
             new webpack.NoEmitOnErrorsPlugin(),
             new webpack.DefinePlugin({
                 'process.env.NODE_ENV': JSON.stringify('dev')

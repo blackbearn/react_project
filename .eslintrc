@@ -22,7 +22,12 @@
   },
   "plugins": [
     // EsLint允许使用第三方插件
-    "react"
+    "react",
+    "html",
+    "import",
+    "node",
+    "promise",
+    "standard"
   ],
   "extends": [
     // Extends是EsLint默认推荐的验证你可以使用配置选择哪些校验是你所需要的

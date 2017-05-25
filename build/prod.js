@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
 const CommonConfig = require('./base.js');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = function () {
     return Merge(CommonConfig, {
@@ -33,6 +34,11 @@ module.exports = function () {
                 dry: false, // 不清除，测试用
                 // exclude: ["files", "to", "ignore"]
             }),
+            //拷贝文件
+            new CopyWebpackPlugin([{
+                from: './iconfont/iconfont.*',
+                to: './',
+            }]),
             new webpack.optimize.UglifyJsPlugin({
                 beautify: false,
                 sourceMap: false,

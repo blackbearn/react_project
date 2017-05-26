@@ -31,9 +31,9 @@ webpack插件
 1. babel相关
 2. webpack-dev-server相关
 
- ##**prepare to finish webpack environment**
+ ## **prepare to finish webpack environment**
  
- ##路径问题
+ ## 路径问题
  1. 需要使用的字体图标放在 ``./src/iconfont`` 目录下
  2. 需要在页面上使用的图片放在 ``./src/pageImage`` 目录下，通过在js中通过``require()``方式引入，
  3. 需要在css中使用的图片放在 ``./src/cssImage`` 目录下

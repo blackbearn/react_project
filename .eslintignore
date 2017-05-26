@@ -3,3 +3,5 @@ node_modules
 dependent
 coverage
 *Server.js
+build
+webpack.config.js

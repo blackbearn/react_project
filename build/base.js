@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack'); //to access built-in plugins
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     target: 'web',
@@ -50,6 +50,7 @@ module.exports = {
             }
         ]
     },
+    //定义入口baseUrl
     context: path.resolve("./"),
     resolve: {
         modules: ['node_modules', path.resolve('./node_modules')],

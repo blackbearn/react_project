@@ -43,7 +43,7 @@ module.exports = function () {
                                 name: './image/[name].[hash:8].[ext]',
                             },
                         },
-                        "image-webpack-loader"
+                        "image-webpack-loader" //图片压缩
                     ]
                 },
                 {
@@ -72,13 +72,16 @@ module.exports = function () {
                 warnings: true,
                 errors: true
             }
+            //全屏显示错误信息
         },
         plugins: [
             //自动打开浏览器
             new OpenBrowserPlugin({
                 url: 'http://localhost:5566'
             }),
+            //报错不退出
             new webpack.NoEmitOnErrorsPlugin(),
+            //设置全局环境变量
             new webpack.DefinePlugin({
                 'process.env.NODE_ENV': JSON.stringify('dev')
             }),

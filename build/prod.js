@@ -15,6 +15,49 @@ module.exports = function () {
         output: {
             publicPath: './'
         },
+        module: {
+            rules: [
+                {
+                    test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+                    include: path.resolve('./src/cssImage'),
+                    use: [
+                        {
+                            loader: 'url-loader',
+                            query: {
+                                limit: 10000,
+                                name: './image/[name].[hash:8].[ext]',
+                                publicPath: '../'
+                            },
+                        },
+                        "image-webpack-loader"
+                    ]
+                },
+                {
+                    test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+                    include: path.resolve('./src/pageImage'),
+                    use: [
+                        {
+                            loader: 'url-loader',
+                            query: {
+                                limit: 10000,
+                                name: './image/[name].[hash:8].[ext]',
+                                publicPath: ' '
+                            },
+                        },
+                        "image-webpack-loader"
+                    ]
+                },
+                {
+                    test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+                    loader: 'url-loader',
+                    query: {
+                        limit: 10000,
+                        name: './iconfont/[name].[hash:7].[ext]',
+                        publicPath: '../'
+                    }
+                }
+            ]
+        },
         plugins: [
             new webpack.DefinePlugin({
                 'process.env.NODE_ENV': JSON.stringify('prod')

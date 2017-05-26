@@ -60,7 +60,7 @@ module.exports = function () {
         },
         plugins: [
             new webpack.DefinePlugin({
-                'process.env.NODE_ENV': JSON.stringify('prod')
+                'process.env.NODE_ENV': JSON.stringify('production')
             }),
             //压缩css
             new OptimizeCssAssetsPlugin({

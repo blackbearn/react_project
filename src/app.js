@@ -14,4 +14,5 @@ const App = () => (
     <Page />
   </div>
 );
+
 export default App;

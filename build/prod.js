@@ -91,7 +91,8 @@ module.exports = function () {
                 comments: false
             }),
             new webpack.optimize.CommonsChunkPlugin({
-                name: "manifest"
+                name: "manifest",
+                chunks: ['vendor']
             }),
             new HtmlWebpackPlugin({
                 title: 'react-project',

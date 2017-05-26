@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon } from 'antd';
+import {Button, Icon} from 'antd';
 import Page from './page/page';
 const imgURL = require('./pageImage/1.jpg');
 

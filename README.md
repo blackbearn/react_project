@@ -1,4 +1,4 @@
-# 班步V3的React实现
+# React-Project
 
 技术栈
 
@@ -10,7 +10,7 @@
 6. es6/7
 7. webpack v2.4
 8. ImmutableJS
-9. sass
+9. less
 10. axios
 11. ant-design
 12. echarts/recharts

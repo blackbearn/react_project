@@ -1,10 +1,9 @@
-import React from 'react';
-const imgURL = require('../pageImage/1.jpg');
+import React, {Component} from 'react';
+import {PropTypes} from 'prop-types';
+import {Input} from 'antd';
 
-const Page = () => (
-    <div className="kidding">
-        <img src={imgURL} alt=""/>
-    </div>
-);
+export default class ComponentInput extends Component {
+  static propTypes = {
 
-export default Page;
+  }
+}

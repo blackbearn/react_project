@@ -6,9 +6,11 @@ import { PropTypes } from 'prop-types'
 import '../style/commentInput.less'
 
 export default class CommentInput extends Component {
+
   static propTypes = {
     onSubmit: PropTypes.func.isRequired
   }
+
   static defaultProps = {
     onSubmit: () => {}
   }
@@ -22,6 +24,10 @@ export default class CommentInput extends Component {
       messageWarning: false,
       submitTime: ''
     }
+  }
+
+  componentDidMount () {
+    this.input.focus()
   }
 
   handleClick () {
@@ -52,7 +58,7 @@ export default class CommentInput extends Component {
         <h3>发表评论</h3>
         <div>
           <label htmlFor="name">用户名：</label>
-          <input type="text" name="name" id="name" value={this.state.name} onChange={e => {
+          <input ref={(input) => this.input = input} type="text" name="name" id="name" value={this.state.name} onChange={e => {
             this.setState({
               name: e.target.value
             })
@@ -66,7 +72,7 @@ export default class CommentInput extends Component {
               message: e.target.value
             })
           }}/>
-          <p className="warning" style={{display: this.state.messageWarning ? 'block' : 'none'}}>评论内容</p>
+          <p className="warning" style={{display: this.state.messageWarning ? 'block' : 'none'}}>评论内容不能为空</p>
         </div>
         <div>
           <button onClick={this.handleClick.bind(this)}>发布</button>

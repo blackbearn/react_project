@@ -16,10 +16,30 @@ export default class CommentList extends Component {
     list: []
   }
 
+  componentWillReceiveProps (...arg) {
+    console.log(...arg)
+  }
+
+  shouldComponentUpdate (...arg) {
+    console.log(...arg)
+    return true
+  }
+
+  componentWillUpdate (...arg) {
+    console.log(...arg)
+  }
+
+  componentDidUpdate (...arg) {
+    console.log(...arg)
+  }
+
   render () {
     return (
       <section>
-        <h3>评论列表</h3>
+        <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
+          <span>评论列表</span>
+          <span>共{this.props.list.length}条评论</span>
+        </h3>
         <ul>
           {
             this.props.list.map((json, index) => {

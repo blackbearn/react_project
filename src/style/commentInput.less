@@ -1,0 +1,45 @@
+.commentInput {
+  label {
+    width: 60px;
+    text-align: right;
+    display: inline-block;
+  }
+  div {
+    margin: 30px 0
+  }
+  div:first-of-type label {
+    vertical-align: middle;
+  }
+  div:nth-of-type(2) label {
+    vertical-align: top;
+  }
+  div:last-of-type {
+    text-align: right;
+  }
+  input {
+    @diff: 60px;
+    width: calc(~"100% - " @diff);
+    line-height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  textarea {
+    width: calc(~"100% - 60px");
+    resize: none
+  }
+  button {
+    cursor: pointer;
+    background: none;
+    border: 1px solid #999;
+    padding: 8px 30px;
+    outline: none;
+    &:hover {
+      color: #fff;
+      background: lighten(#0086b3, 10%);
+    }
+  }
+  .warning {
+    color: lighten(#bd2c00, 30%);
+    margin-left: 60px;
+  }
+}

@@ -80,10 +80,6 @@
         ]
       }
     ],
-    "semi": [
-      2,
-      "always"
-    ],
     "react/jsx-boolean-value": 0,
     "react/jsx-closing-bracket-location": 0,
     "react/jsx-curly-spacing": 1,

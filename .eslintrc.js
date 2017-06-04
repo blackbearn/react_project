@@ -1,4 +1,4 @@
-{
+module.exports = {
   "parserOptions": {
     //EsLint通过parserOptions，允许指定校验的ecma的版本，及ecma的一些特性
     "ecmaVersion": 6,
@@ -46,6 +46,10 @@
     "strict": [
       2,
       "never"
+    ],
+    "semi": [
+      2,
+      "always"
     ],
     "no-console": [
       "error",
@@ -95,7 +99,6 @@
     "react/jsx-sort-props": 0,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
-    "react/no-danger": 1,
     "react/no-did-mount-set-state": 1,
     "react/no-did-update-set-state": 1,
     "react/no-direct-mutation-state": 1,

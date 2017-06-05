@@ -1,9 +1,9 @@
 /**
  * Created by Admin on 2017/6/5.
  */
-import React from 'react'
-import Button from './button'
-import { connect, mapStateToProps } from './connect'
+import React from 'react';
+import Button from './button';
+import { connect, mapStateToProps } from './connect';
 
 // @connect(mapStateToProps)
 // export default class Title extends Component {
@@ -26,12 +26,12 @@ import { connect, mapStateToProps } from './connect'
 const Title = (prop) => {
   return (
     <section>
-        <span style={{color: prop.themeColor}}>
+        <span style={{ color: prop.themeColor }}>
           react-redux-content
         </span>
       <Button/>
     </section>
-  )
-}
+  );
+};
 
-export default connect(mapStateToProps)(Title)
+export default connect(mapStateToProps)(Title);

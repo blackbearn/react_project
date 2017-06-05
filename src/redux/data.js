@@ -10,5 +10,5 @@ const initialState = {
     text: 'react内容',
     color: '#333'
   }
-}
-export default initialState
+};
+export default initialState;

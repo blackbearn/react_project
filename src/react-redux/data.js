@@ -3,5 +3,5 @@
  */
 const state = {
   themeColor: 'red'
-}
-export default state
+};
+export default state;

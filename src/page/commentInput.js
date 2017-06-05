@@ -1,23 +1,22 @@
 /**
  * Created by Admin on 2017/6/2.
  */
-import React, {Component} from 'react'
-import {PropTypes} from 'prop-types'
-import '../style/commentInput.less'
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
+import '../style/commentInput.less';
 
 export default class CommentInput extends Component {
-
   static propTypes = {
     onSubmit: PropTypes.func.isRequired
-  }
+  };
 
   static defaultProps = {
     onSubmit: () => {
     }
-  }
+  };
 
-  constructor(props) {
-    super(props)
+  constructor (props) {
+    super(props);
     this.state = {
       name: '',
       message: '',
@@ -25,23 +24,23 @@ export default class CommentInput extends Component {
       messageWarning: false,
       submitTime: '',
       title: '<span>发表评论</span>'
-    }
+    };
   }
 
-  componentDidMount() {
-    this.input.focus()
+  componentDidMount () {
+    this.input.focus();
   }
 
-  handleClick() {
+  handleClick () {
     if (!this.state.name) {
       this.setState({
         nameWarning: true
-      })
+      });
     }
     if (!this.state.message) {
       this.setState({
         messageWarning: true
-      })
+      });
     }
     if (this.state.name && this.state.message) {
       this.setState({
@@ -49,7 +48,7 @@ export default class CommentInput extends Component {
         messageWarning: false,
         submitTime: new Date().getTime()
       }, () => {
-        this.props.onSubmit(this.state)
+        this.props.onSubmit(this.state);
         this.setState({
           name: '',
           message: '',
@@ -57,12 +56,12 @@ export default class CommentInput extends Component {
           messageWarning: false,
           submitTime: '',
           title: '<span>发表评论</span>'
-        })
-      })
+        });
+      });
     }
   }
 
-  render() {
+  render () {
     return (
       <section className="commentInput">
         <h3 dangerouslySetInnerHTML={{__html: this.state.title}}/>
@@ -71,7 +70,7 @@ export default class CommentInput extends Component {
           <input ref={(input) => this.input = input} type="text" name="name" id="name" value={this.state.name} onChange={e => {
             this.setState({
               name: e.target.value
-            })
+            });
           }}/>
           <p className="warning" style={{display: this.state.nameWarning ? 'block' : 'none'}}>用户名不能为空</p>
         </div>
@@ -80,7 +79,7 @@ export default class CommentInput extends Component {
           <textarea name="message" id="message" rows="5" value={this.state.message} onChange={e => {
             this.setState({
               message: e.target.value
-            })
+            });
           }}/>
           <p className="warning" style={{display: this.state.messageWarning ? 'block' : 'none'}}>评论内容不能为空</p>
         </div>
@@ -88,6 +87,6 @@ export default class CommentInput extends Component {
           <button onClick={this.handleClick.bind(this)}>发布</button>
         </div>
       </section>
-    )
+    );
   }
 }

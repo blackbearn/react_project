@@ -45,7 +45,7 @@ export default (HocComponent) => (title) => {
         timeCount = `${Math.ceil(timeCount / 60)}分钟`
       }
       if (timeCount / 60 / 60 < 24) {
-        timeCount = `${Math.ceil(timeCount / 60)}小时`
+        timeCount = `${Math.ceil(timeCount / 60 / 60)}小时`
       }
       if (timeCount / 60 / 60 > 24) {
         timeCount = `${Math.ceil(timeCount / 60 / 60 / 24)}天`

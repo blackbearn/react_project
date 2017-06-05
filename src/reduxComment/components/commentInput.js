@@ -3,8 +3,11 @@
  */
 import React, {Component} from 'react'
 import {PropTypes} from 'prop-types'
-import '../style/commentInput.less'
+import '../../style/commentInput.less'
+import {connect} from 'react-redux'
+import {mapStateToProps, mapDispatchToProps} from '../store/store'
 
+@connect(mapStateToProps, mapDispatchToProps)
 export default class CommentInput extends Component {
 
   static propTypes = {

@@ -5,8 +5,11 @@ import React, {Component} from 'react'
 import {PropTypes} from 'prop-types'
 import CommentInput from './commentInput'
 import CommentList from './commentList'
-import '../style/wrap.less'
+import '../../style/wrap.less'
+import {connect} from 'react-redux'
+import {mapStateToProps, mapDispatchToProps} from '../store/store'
 
+@connect(mapStateToProps, mapDispatchToProps)
 export default class CommentApp extends Component {
   static propTypes = {
     children: PropTypes.element
@@ -38,7 +41,7 @@ export default class CommentApp extends Component {
 
   render() {
     return (
-      <article>
+      <article className="content-app">
         {this.props.children}
         <CommentInput onSubmit={(val) => {
           const comments = this.state.comments

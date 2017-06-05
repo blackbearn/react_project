@@ -4,8 +4,11 @@
 import React, {Component} from 'react'
 import {PropTypes} from 'prop-types'
 import Comment from './comment'
-import '../style/commentList.less'
+import '../../style/commentList.less'
+import {connect} from 'react-redux'
+import {mapStateToProps, mapDispatchToProps} from '../store/store'
 
+@connect(mapStateToProps, mapDispatchToProps)
 export default class CommentList extends Component {
 
   static propTypes = {

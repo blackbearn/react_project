@@ -47,10 +47,10 @@ module.exports = {
       2,
       "never"
     ],
-    // "semi": [
-    //   2,
-    //   "always"
-    // ],
+    "semi": [
+      2,
+      "never"
+    ],
     "no-console": [
       "error",
       {

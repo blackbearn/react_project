@@ -22,6 +22,7 @@ class Comment extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <p dangerouslySetInnerHTML={{

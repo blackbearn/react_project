@@ -1,5 +1,5 @@
-import React, {Component}from 'react';
-import CommentApp from './page/commentApp';
+import React, { Component }from 'react'
+import CommentApp from './page/commentApp'
 // import {PropTypes} from 'prop-types';
 // // import {Button, Icon} from 'antd';
 // // import Page from './page/page';
@@ -54,11 +54,11 @@ import CommentApp from './page/commentApp';
 // }
 
 export default class App extends Component {
-  render() {
+  render () {
     return (
       <CommentApp>
         <h3 style={{textAlign: 'center'}}>React 论坛</h3>
       </CommentApp>
-    );
+    )
   }
 }

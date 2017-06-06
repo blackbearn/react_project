@@ -27,10 +27,6 @@ webpack插件
 7. webpack-merge
 8. react-hot-loader
 
-待安装
-1. babel相关
-2. webpack-dev-server相关
-
  ## **prepare to finish webpack environment**
  
  ## 路径问题
@@ -40,3 +36,11 @@ webpack插件
  4. 所有资源按照正常路径引入
  
  **路径问题的最优解决办法是在生产环境下设置output的publicPath为服务器地址**
+
+### 已了解
+1. react
+2. redux
+
+*TODO*
+1. react-router V4.0
+2. antd

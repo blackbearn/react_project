@@ -1,32 +1,31 @@
 /**
- * Created by Admin on 2017/6/2.
+ * Created by Administrator on 2017/6/6.
  */
 import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
-import '../../style/commentInput.less';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { mapStateToProps, mapDispatchToProps } from '../store/store';
+import '../../style/commentInput.less';
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class CommentInput extends Component {
   static propTypes = {
-    onSubmit: PropTypes.func.isRequired
+    addComment: PropTypes.func
   };
-
   static defaultProps = {
-    onSubmit: () => {
-    }
+    addComment: () => {}
   };
 
-  constructor (props) {
-    super(props);
+  constructor () {
+    super();
     this.state = {
-      name: '',
-      message: '',
-      nameWarning: false,
-      messageWarning: false,
-      submitTime: '',
-      title: '<span>发表评论</span>'
+      comment: {
+        name: '',
+        text: '',
+        date: ''
+      },
+      nameWarning: '',
+      textWarning: ''
     };
   }
 
@@ -35,30 +34,35 @@ export default class CommentInput extends Component {
   }
 
   handleClick () {
-    if (!this.state.name) {
+    if (!this.state.comment.name) {
       this.setState({
         nameWarning: true
       });
     }
-    if (!this.state.message) {
+    if (!this.state.comment.text) {
       this.setState({
-        messageWarning: true
+        textWarning: true
       });
     }
-    if (this.state.name && this.state.message) {
+    if (this.state.comment.name && this.state.comment.text) {
       this.setState({
         nameWarning: false,
         messageWarning: false,
-        submitTime: new Date().getTime()
+        comment: {
+          text: this.state.comment.text,
+          name: this.state.comment.name,
+          date: new Date().getTime()
+        }
       }, () => {
-        this.props.onSubmit(this.state);
+        this.props.addComment(this.state.comment);
         this.setState({
-          name: '',
-          message: '',
+          comment: {
+            name: '',
+            text: '',
+            date: ''
+          },
           nameWarning: false,
-          messageWarning: false,
-          submitTime: '',
-          title: '<span>发表评论</span>'
+          messageWarning: false
         });
       });
     }
@@ -67,28 +71,29 @@ export default class CommentInput extends Component {
   render () {
     return (
       <section className="commentInput">
-        <h3 dangerouslySetInnerHTML={{ __html: this.state.title }}/>
         <div>
           <label htmlFor="name">用户名：</label>
-          <input ref={(input) => {
-            this.input = input;
-          }} type="text" name="name" id="name" value={this.state.name} onChange={e => {
+          <input ref={input => this.input = input} type="text" name="name" id="name" value={this.state.comment.name} onChange={e => {
             this.setState({
-              name: e.target.value
+              comment: {
+                name: e.target.value,
+                text: this.state.comment.text
+              }
             });
           }}/>
-          <p className="warning" style={{ display: this.state.nameWarning ? 'block' : 'none' }}>
-            用户名不能为空</p>
+          <p className="warning" style={{ display: this.state.nameWarning ? 'block' : 'none' }}>用户名不能为空</p>
         </div>
         <div>
-          <label htmlFor="message">评&nbsp;论：</label>
-          <textarea name="message" id="message" rows="5" value={this.state.message} onChange={e => {
+          <label htmlFor="text">评&nbsp;论：</label>
+          <textarea name="text" id="text" rows="5" value={this.state.comment.text} onChange={e => {
             this.setState({
-              message: e.target.value
+              comment: {
+                name: this.state.comment.name,
+                text: e.target.value
+              }
             });
           }}/>
-          <p className="warning" style={{ display: this.state.messageWarning ? 'block' : 'none' }}>
-            评论内容不能为空</p>
+          <p className="warning" style={{ display: this.state.textWarning ? 'block' : 'none' }}>评论内容不能为空</p>
         </div>
         <div>
           <button onClick={this.handleClick.bind(this)}>发布</button>

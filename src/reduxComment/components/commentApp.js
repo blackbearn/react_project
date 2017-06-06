@@ -1,61 +1,46 @@
 /**
- * Created by Admin on 2017/6/2.
+ * Created by Administrator on 2017/6/6.
  */
 import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { mapStateToProps, mapDispatchToProps } from '../store/store';
 import CommentInput from './commentInput';
 import CommentList from './commentList';
 import '../../style/wrap.less';
-import { connect } from 'react-redux';
-import { mapStateToProps, mapDispatchToProps } from '../store/store';
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class CommentApp extends Component {
   static propTypes = {
-    children: PropTypes.element
+    initComments: PropTypes.func
+  };
+  static defaultProps = {
+    initComments: () => {}
   };
 
   constructor () {
     super();
-    this.state = {
-      comments: []
-    };
+    this.state = {};
   }
 
   componentWillMount () {
-    const commentList = JSON.parse(window.localStorage.getItem('comment')) ||
-      [];
-    this.setState({
-      comments: commentList
-    });
+    const comment = JSON.parse(window.localStorage.getItem('comments')) || [];
+    this.props.initComments(comment);
+    this.interval = window.setInterval(() => {
+      const comment = JSON.parse(window.localStorage.getItem('comments')) || [];
+      this.props.initComments(comment);
+    }, 5000);
   }
 
-  handleDelete (index) {
-    const commentList = this.state.comments;
-    commentList.splice(index, 1);
-    this.setState({
-      comments: commentList
-    }, () => {
-      window.localStorage.setItem('comment',
-        JSON.stringify(this.state.comments));
-    });
+  componentWillUnmount () {
+    window.clearInterval(this.interval);
   }
 
   render () {
     return (
       <article className="content-app">
-        {this.props.children}
-        <CommentInput onSubmit={(val) => {
-          const comments = this.state.comments;
-          comments.push(val);
-          this.setState({
-            comments: comments
-          }, () => {
-            window.localStorage.setItem('comment',
-              JSON.stringify(this.state.comments));
-          });
-        }}/>
-        <CommentList list={this.state.comments} onRemove={this.handleDelete.bind(this)}/>
+        <CommentInput/>
+        <CommentList/>
       </article>
     );
   }

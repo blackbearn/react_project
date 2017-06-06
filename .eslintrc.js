@@ -7,9 +7,9 @@ module.exports = {
     //指定来源的类型，有两种”script”或”module”
     'ecmaFeatures': {
       // ecmaFeatures指定你想使用哪些额外的语言特性
-      'jsx': true,
+      'jsx': true
       //启动JSX
-    },
+    }
   },
   'parser': 'babel-eslint',
   // EsLint默认使用esprima做脚本解析，也可以切换成babel-eslint解析
@@ -18,7 +18,7 @@ module.exports = {
     'browser': true,
     'node': true,
     'es6': true,
-    'commonjs': true,
+    'commonjs': true
   },
   'plugins': [
     // EsLint允许使用第三方插件
@@ -27,7 +27,7 @@ module.exports = {
     'import',
     'node',
     'promise',
-    'standard',
+    'standard'
   ],
   // "extends": "eslint:recommended",
   'extends': 'standard',
@@ -40,16 +40,16 @@ module.exports = {
     'no-empty': [
       'error',
       {
-        'allowEmptyCatch': true,
-      },
+        'allowEmptyCatch': true
+      }
     ],
     'strict': [
       2,
-      'never',
+      'never'
     ],
     'semi': [
       2,
-      'always',
+      'always'
     ],
     'no-console': [
       'error',
@@ -57,9 +57,9 @@ module.exports = {
         'allow': [
           'warn',
           'error',
-          'log',
-        ],
-      },
+          'log'
+        ]
+      }
     ],
     'quotes': 0,
     'no-debugger': 1,
@@ -73,18 +73,19 @@ module.exports = {
     'react/display-name': [
       1,
       {
-        'ignoreTranspilerName': false,
-      },
+        'ignoreTranspilerName': false
+      }
     ],
     'react/forbid-prop-types': [
       1,
       {
         'forbid': [
-          'any',
-        ],
-      },
+          'any'
+        ]
+      }
     ],
     'no-undef-init': 0,
+    'no-return-assign': 0,
     'react/jsx-boolean-value': 0,
     'react/jsx-closing-bracket-location': 0,
     'react/jsx-curly-spacing': 1,
@@ -110,9 +111,9 @@ module.exports = {
     'react/prop-types': 1,
     'react/react-in-jsx-scope': 1,
     'react/self-closing-comp': 1,
-    'react/sort-comp': 1,
+    'react/sort-comp': 1
   },
   'globals': {
     // 即插件在执行过程中用到的其它全局变量
-  },
+  }
 };

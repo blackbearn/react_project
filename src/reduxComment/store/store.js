@@ -6,7 +6,7 @@ import reducers from '../reducers/index';
 import axiosMiddleware from 'redux-axios-middleware';
 import axiosConfig from '../lib/axiosBase';
 import { createLogger } from 'redux-logger';
-import * as actions from '../actions/actions';
+import actions from '../actions/index';
 
 const loggerMiddleware = createLogger();
 

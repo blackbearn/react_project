@@ -27,8 +27,6 @@ webpack插件
 7. webpack-merge
 8. react-hot-loader
 
- ## **prepare to finish webpack environment**
- 
  ## 路径问题
  1. 需要使用的字体图标放在 ``./src/iconfont`` 目录下
  2. 需要在页面上使用的图片放在 ``./src/pageImage`` 目录下，通过在js中通过``require()``方式引入，
@@ -41,6 +39,23 @@ webpack插件
 1. react
 2. redux
 
-*TODO*
+> TODO
 1. react-router V4.0
 2. antd
+3. redux-actions(创建符合符合FSA标准的action)
+4. redux-promise(配合redux-actions处理符合FSA标准的action,处理异步请求同redux-thunk，不能共用)
+5. redux-unhandled-action
+> 开发过程中，若 Action 未使 State 发生变化则发出警告
+````
+import { createStore, applyMiddleware } from "redux";
+
+import reduxUnhandledAction from "redux-unhandled-action";
+
+import reducer from "./reducer";
+
+const callback = (action) => console.error(`${action} didn't lead to creation of a new state object`);
+
+const store = createStore(reducer, applyMiddleware(reduxUnhandledAction(callback)));
+  ````
+
+[ webpack构建优化 ](https://github.com/dwqs/blog/issues/52)

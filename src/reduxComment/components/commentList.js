@@ -26,7 +26,7 @@ export default class CommentList extends Component {
     return (
       <ul>
         {
-          this.props.comments.reducers.map((list, index) => {
+          this.props.comments.comment.map((list, index) => {
             return <Comment json={list} key={index} index={index}/>;
           })
         }

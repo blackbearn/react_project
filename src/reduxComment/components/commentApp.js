@@ -40,6 +40,7 @@ export default class CommentApp extends Component {
     console.log(this.props);
     return (
       <article className="content-app">
+        <h3 className="comment-app-title">React评论</h3>
         <CommentInput/>
         <CommentList/>
       </article>

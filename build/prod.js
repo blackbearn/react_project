@@ -98,13 +98,6 @@ module.exports = function () {
           comments: false
         }
       }),
-      new CompressionPlugin({
-        asset: '[path].gz[query]',
-        algorithm: 'gzip',
-        test: /\.(js|jsx|html|css|less)$/,
-        threshold: 10240,
-        minRatio: 0.8
-      }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'manifest',
         chunks: ['vendor']
@@ -129,6 +122,13 @@ module.exports = function () {
         favicon: '',
         hash: false,
         showErrors: true
+      }),
+      new CompressionPlugin({
+        asset: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: /\.(js|jsx|html|css|less)$/,
+        threshold: 10240,
+        minRatio: 0.8
       })
     ]
   });

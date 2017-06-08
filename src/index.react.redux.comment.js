@@ -5,7 +5,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { store } from './reduxComment/store/store';
-import App from './reactRouter';
+import App from './reduxComment/components/commentApp';
 import { AppContainer } from 'react-hot-loader';
 
 import '@/style/main.less';

@@ -26,6 +26,10 @@ webpack插件
 6. extract-text-webpack-plugin
 7. webpack-merge
 8. react-hot-loader
+9. happypack
+10. compression-webpack-plugin
+11. webpack-parallel-uglify-plugin
+12. webpack-dev-server
 
  ## 路径问题
  1. 需要使用的字体图标放在 ``./src/iconfont`` 目录下
@@ -38,9 +42,13 @@ webpack插件
 ### 已了解
 1. react
 2. redux
+3. webpack
+4. eslint
+5. react-redux
+6. less
 
 > TODO
-1. react-router V4.0
+1. react-router-dom V4.0
 2. antd
 3. redux-actions(创建符合符合FSA标准的action)
 4. redux-promise(配合redux-actions处理符合FSA标准的action,处理异步请求同redux-thunk，不能共用)

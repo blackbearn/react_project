@@ -11,10 +11,10 @@ import '../../style/commentList.less';
 @connect(mapStateToProps)
 export default class CommentList extends Component {
   static propTypes = {
-    comments: PropTypes.object
+    commentState: PropTypes.object
   };
   static defaultProps = {
-    comments: {}
+    commentState: {}
   };
 
   constructor () {
@@ -26,7 +26,7 @@ export default class CommentList extends Component {
     return (
       <ul>
         {
-          this.props.comments.comment.map((list, index) => {
+          this.props.commentState.comment.map((list, index) => {
             return <Comment json={list} key={index} index={index}/>;
           })
         }

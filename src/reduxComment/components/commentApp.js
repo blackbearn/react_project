@@ -12,10 +12,10 @@ import '../../style/wrap.less';
 @connect(mapStateToProps, mapDispatchToProps)
 export default class CommentApp extends Component {
   static propTypes = {
-    initComments: PropTypes.func
+    commentAction: PropTypes.object
   };
   static defaultProps = {
-    initComments: () => {}
+    commentAction: {}
   };
 
   constructor () {
@@ -25,18 +25,19 @@ export default class CommentApp extends Component {
 
   componentWillMount () {
     const comment = JSON.parse(window.localStorage.getItem('comments')) || [];
-    this.props.initComments(comment);
-    this.interval = window.setInterval(() => {
-      const comment = JSON.parse(window.localStorage.getItem('comments')) || [];
-      this.props.initComments(comment);
-    }, 5000);
+    this.props.commentAction.initComments(comment);
+    // this.interval = window.setInterval(() => {
+    //   const comment = JSON.parse(window.localStorage.getItem('comments')) || [];
+    //   this.props.initComments(comment);
+    // }, 5000);
   }
 
   componentWillUnmount () {
-    window.clearInterval(this.interval);
+    // window.clearInterval(this.interval);
   }
 
   render () {
+    console.log(this.props);
     return (
       <article className="content-app">
         <CommentInput/>

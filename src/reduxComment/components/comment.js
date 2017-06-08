@@ -9,12 +9,12 @@ export default class Comment extends Component {
   static propTypes = {
     json: PropTypes.object,
     index: PropTypes.number,
-    deleteComment: PropTypes.func
+    commentAction: PropTypes.object
   };
   static defaultProps = {
     json: {},
     index: 0,
-    deleteComment: () => {}
+    commentAction: {}
   };
 
   constructor () {
@@ -23,7 +23,7 @@ export default class Comment extends Component {
   }
 
   handleClick (index) {
-    this.props.deleteComment(index);
+    this.props.commentAction.deleteComment(index);
   }
 
   calTime (date) {

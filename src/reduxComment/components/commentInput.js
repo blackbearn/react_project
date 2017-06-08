@@ -10,10 +10,10 @@ import '../../style/commentInput.less';
 @connect(mapStateToProps, mapDispatchToProps)
 export default class CommentInput extends Component {
   static propTypes = {
-    addComment: PropTypes.func
+    commentAction: PropTypes.object
   };
   static defaultProps = {
-    addComment: () => {}
+    commentAction: () => {}
   };
 
   constructor () {
@@ -54,7 +54,7 @@ export default class CommentInput extends Component {
           date: new Date().getTime()
         }
       }, () => {
-        this.props.addComment(this.state.comment);
+        this.props.commentAction.addComment(this.state.comment);
         this.setState({
           comment: {
             name: '',

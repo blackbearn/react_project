@@ -6,7 +6,7 @@ import reducers from '../reducers/index';
 import axiosMiddleware from 'redux-axios-middleware';
 import axiosConfig from '../lib/axiosBase';
 import { createLogger } from 'redux-logger';
-import actions from '../actions/index';
+import * as actionComment from '../actions/actionComment';
 
 const loggerMiddleware = createLogger();
 
@@ -33,10 +33,12 @@ if (module.hot) {
 
 export const mapStateToProps = (state) => {
   return {
-    comments: state
+    commentState: state
   };
 };
 
 export const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(actions, dispatch);
+  return {
+    commentAction: bindActionCreators(actionComment, dispatch)
+  };
 };

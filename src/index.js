@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { store } from './reduxComment/store/store';
 import App from './reactRouter';
 import { AppContainer } from 'react-hot-loader';
+import { BrowserRouter } from 'react-router-dom';
 
 import '@/style/main.less';
 import '@/style/style.css';
@@ -16,7 +17,9 @@ if (process.env.NODE_ENV === 'dev') {
     render(
       <AppContainer>
         <Provider store={store}>
-          <Component />
+          <BrowserRouter>
+            <Component />
+          </BrowserRouter>
         </Provider>
       </AppContainer>,
       document.getElementById('root')
@@ -35,7 +38,9 @@ if (process.env.NODE_ENV === 'dev') {
 } else {
   render(
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <Component />
+      </BrowserRouter>
     </Provider>,
     document.getElementById('root')
   );

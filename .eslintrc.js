@@ -85,6 +85,7 @@ module.exports = {
         ]
       }
     ],
+    'import/no-webpack-loader-syntax': 0,
     'no-undef-init': 0,
     'no-return-assign': 0,
     'react/jsx-boolean-value': 0,
@@ -105,11 +106,11 @@ module.exports = {
     'react/no-did-mount-set-state': 1,
     'react/no-did-update-set-state': 1,
     'react/no-direct-mutation-state': 1,
-    'react/no-multi-comp': 1,
+    'react/no-multi-comp': 0,
     'react/no-set-state': 0,
     'react/no-unknown-property': 1,
     'react/prefer-es6-class': 1,
-    'react/prop-types': 1,
+    'react/prop-types': 0,
     'react/react-in-jsx-scope': 1,
     'react/self-closing-comp': 1,
     'react/sort-comp': 1

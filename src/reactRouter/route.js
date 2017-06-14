@@ -7,23 +7,22 @@ import About from './about';
 import Other from './other';
 import List from './list';
 import App from './app';
+import '../style/main.less';
 
 export default class ReactRouter extends Component {
   render () {
     return (
       <Switch>
         <Route path="/list" component={List}/>
-        <Route path="/" children={() => (
+        <Route render={() => (
           <App>
-            <Switch>
-              <Route exact path="/" component={About}/>
-              <Route path="/other" children={(...props) => (
-                <Other {...props}/>
-              )}/>
-              <Route path="/fuck" render={() => (
-                <Redirect to="/list"/>
-              )}/>
-            </Switch>
+            <Route exact path="/" component={About}/>
+            <Route path="/other" render={(...props) => (
+              <Other {...props}/>
+            )}/>
+            <Route path="/fuck" render={() => (
+              <Redirect to="/list"/>
+            )}/>
           </App>
         )}/>
       </Switch>

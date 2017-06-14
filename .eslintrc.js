@@ -37,6 +37,7 @@ module.exports = {
     'import/named': 0,
     'import/no-named-as-default': 0,
     'react/jsx-wrap-multilines': 1,
+    'spaced-comment': 0,
     'no-empty': [
       'error',
       {

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 export default class App extends Component {
   static propTypes = {
-    children: PropTypes.object
+    children: PropTypes.array
   };
 
   render () {
@@ -21,7 +21,7 @@ export default class App extends Component {
           <Link to="/fuck">fuck</Link>
         </header>
         <section>
-          {this.props.children}
+            {this.props.children}
         </section>
       </article>
     );

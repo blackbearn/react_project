@@ -5,7 +5,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { store } from './reduxComment/store/store';
-import App from './reactRouter';
+import App from './reactRouter/route';
 import { AppContainer } from 'react-hot-loader';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'dev') {
 
 // 模块热替换的 API
   if (module.hot) {
-    module.hot.accept('./reduxComment/components/commentApp', () => {
+    module.hot.accept('./reactRouter/route', () => {
       // const App = require('./app').default;
       renderApp(App);
     });
@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === 'dev') {
   render(
     <Provider store={store}>
       <BrowserRouter>
-        <Component />
+        <App />
       </BrowserRouter>
     </Provider>,
     document.getElementById('root')

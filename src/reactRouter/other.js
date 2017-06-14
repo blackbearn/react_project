@@ -7,7 +7,7 @@ export default class Other extends Component {
   render () {
     console.log(this.props);
     return (
-      <div>other</div>
+      <div style={{ background: 'red' }}>other</div>
     );
   }
 }

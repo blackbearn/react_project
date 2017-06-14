@@ -14,14 +14,14 @@ export default class App extends Component {
     return (
       <article>
         <header>
-          <Link to="/">about</Link>
+          <Link to="/about">about</Link>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <Link to="/other">other</Link>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <Link to="/fuck">fuck</Link>
         </header>
         <section>
-            {this.props.children}
+          {this.props.children}
         </section>
       </article>
     );

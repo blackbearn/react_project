@@ -1,5 +1,15 @@
 .kidding {
-    display: flex;
-    background: url("../cssImage/1.jpg") no-repeat center;
-    background-size: 100% 100%;
+  display: flex;
+  background: url("../cssImage/1.jpg") no-repeat center;
+  background-size: 100% 100%;
+}
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  transform: translateX(100%);
+  transition: transform 250ms ease-in;
 }

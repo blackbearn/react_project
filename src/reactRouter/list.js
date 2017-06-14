@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 export default class List extends Component {
   render () {
     return (
-      <ul>
+      <ul style={{ background: 'green' }}>
         <li>1</li>
         <li>1</li>
         <li>1</li>

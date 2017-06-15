@@ -33,6 +33,8 @@ export default class Bundle extends React.Component {
   }
 
   render () {
-    return this.props.children(this.state.mod);
+    return this.state.mod ? this.props.children(this.state.mod) : <div className="loading">加载中...</div>;
   }
 }
+
+// asyncComponent(() => import('./user/index').then(module => module.default).catch((err)=>{return 101}))

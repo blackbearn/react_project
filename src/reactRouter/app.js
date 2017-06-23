@@ -4,7 +4,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Img from '../pageImage/1.jpg';
+import Img from '../image/1.jpg';
 import '../style/wrap.less';
 
 export default class App extends Component {

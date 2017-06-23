@@ -35,31 +35,6 @@ module.exports = function () {
       publicPath: '/'
       // 输出解析文件的目录，url 相对于 HTML 页面
     },
-    module: {
-      rules: [
-        {
-          test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-          use: [
-            {
-              loader: 'url-loader',
-              query: {
-                limit: 10000,
-                name: './image/[name].[hash:8].[ext]'
-              }
-            },
-            'image-webpack-loader' //图片压缩
-          ]
-        },
-        {
-          test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
-          loader: 'url-loader',
-          query: {
-            limit: 10000,
-            name: './iconfont/[name].[hash:7].[ext]'
-          }
-        }
-      ]
-    },
     devtool: 'cheap-module-eval-source-map',
     devServer: {
       noInfo: true,

@@ -33,11 +33,9 @@ webpack插件
 
  ## 路径问题
  1. 需要使用的字体图标放在 ``./src/iconfont`` 目录下
- 2. 需要在页面上使用的图片放在 ``./src/pageImage`` 目录下，通过在js中通过``require()``方式引入，
- 3. 需要在css中使用的图片放在 ``./src/cssImage`` 目录下
- 4. 所有资源按照正常路径引入
+ 2. 需要使用的图片放在 ``./src/pageImage`` 目录下，在js中通过``require()``方式引入，css中按照正常``url``方式引入
  
- **路径问题的最优解决办法是在生产环境下设置output的publicPath为服务器地址**
+ **构建出来的文件的资源路径问题唯一解决办法是在生产环境下设置output的publicPath为服务器地址**
 
 ### 已了解
 1. react

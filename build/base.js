@@ -40,6 +40,27 @@ module.exports = {
           fallback: 'style-loader',
           use: 'happypack/loader?id=less'
         })
+      },
+      {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        use: [
+          {
+            loader: 'url-loader',
+            query: {
+              limit: 10000,
+              name: './image/[name].[hash:8].[ext]'
+            }
+          },
+          'image-webpack-loader' //图片压缩
+        ]
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: './iconfont/[name].[hash:7].[ext]'
+        }
       }
     ]
   },

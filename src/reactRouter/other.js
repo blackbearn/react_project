@@ -2,6 +2,7 @@
  * Created by Admin on 2017/6/14.
  */
 import React, { Component } from 'react';
+// import { withRouter } from 'react-router-dom';
 
 export default class Other extends Component {
   render () {
@@ -11,3 +12,5 @@ export default class Other extends Component {
     );
   }
 }
+
+// export default withRouter(Other);

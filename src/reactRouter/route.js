@@ -17,11 +17,11 @@ const ListContain = () => (
   </Bundle>
 );
 
-const OtherContain = () => (
-  <Bundle load={Other}>
-    {(OtherContain) => <OtherContain />}
-  </Bundle>
-);
+// const OtherContain = () => (
+//   <Bundle load={Other}>
+//     {(OtherContain) => <OtherContain />}
+//   </Bundle>
+// );
 
 const AboutContain = () => (
   <Bundle load={About}>
@@ -40,7 +40,11 @@ export default class ReactRouter extends Component {
               < Route location={location} render={() => (
                 <App>
                   <Route location={location} exact path="/about" component={AboutContain}/>
-                  <Route location={location} path="/other" component={OtherContain}/>
+                  <Route location={location} path="/other" render={(props) => (
+                    <Bundle load={Other}>
+                      {(OtherContain) => <OtherContain {...props}/>}
+                    </Bundle>
+                  )}/>
                   <Route location={location} path="/fuck" render={() => (
                     <Redirect to="/list"/>
                   )}/>

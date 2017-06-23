@@ -4,6 +4,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Img from '../pageImage/1.jpg';
+import '../style/wrap.less';
 
 export default class App extends Component {
   static propTypes = {
@@ -12,7 +14,7 @@ export default class App extends Component {
 
   render () {
     return (
-      <article>
+      <article className="content-app">
         <header>
           <Link to="/about">about</Link>
           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -21,6 +23,7 @@ export default class App extends Component {
           <Link to="/fuck">fuck</Link>
         </header>
         <section>
+          <img src={Img} alt=""/>
           {this.props.children}
         </section>
       </article>

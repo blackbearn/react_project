@@ -44,7 +44,7 @@ module.exports = function () {
               query: {
                 limit: 10000,
                 name: './image/[name].[hash:8].[ext]',
-                publicPath: ' '
+                publicPath: ''
               }
             },
             //压缩图片

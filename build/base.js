@@ -49,7 +49,7 @@ module.exports = {
     modules: ['node_modules', path.resolve('./node_modules')],
     extensions: ['.web.tsx', '.web.ts', '.web.jsx', '.web.js', '.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.less'],
     alias: {
-      '@': path.resolve('./src')
+      '@': path.resolve('./src/')
     }
   },
   plugins: [

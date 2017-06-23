@@ -4,6 +4,10 @@ const Merge = require('webpack-merge');
 const path = require('path');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const CommonConfig = require('./base.js');
+const urlBase = {
+  host: 'http://localhost',
+  port: '5566'
+};
 
 module.exports = function () {
   return Merge(CommonConfig, {
@@ -15,7 +19,7 @@ module.exports = function () {
         'react-hot-loader/patch',
         // 开启 React 代码的模块热替换(HMR)
 
-        'webpack-dev-server/client?http://localhost:5566',
+        `webpack-dev-server/client?${urlBase.host}:${urlBase.port}`,
         // 为 webpack-dev-server 的环境打包代码
         // 然后连接到指定服务器域名与端口
 
@@ -59,7 +63,7 @@ module.exports = function () {
     devtool: 'cheap-module-eval-source-map',
     devServer: {
       noInfo: true,
-      port: '5566',
+      port: urlBase.port,
       hot: true,
       // quiet: true,
       compress: true,
@@ -78,7 +82,7 @@ module.exports = function () {
     plugins: [
       //自动打开浏览器
       new OpenBrowserPlugin({
-        url: 'http://localhost:5566'
+        url: `${urlBase.host}:${urlBase.port}`
       }),
       //报错不退出
       new webpack.NoEmitOnErrorsPlugin(),

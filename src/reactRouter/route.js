@@ -4,12 +4,11 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { CSSTransitionGroup } from 'react-transition-group';
-import About from 'bundle-loader?lazy!./about';
-import Other from 'bundle-loader?lazy!./other';
-import List from 'bundle-loader?lazy!./list';
+import About from './about';
+import Other from './other';
+import List from './list';
 import App from './app';
 import '../style/main.less';
-import Bundle from './bundle';
 
 export default class ReactRouter extends Component {
   render () {
@@ -19,21 +18,15 @@ export default class ReactRouter extends Component {
           <div key={location.key}>
             <Switch>
               <Route location={location} path="/list" render={() => (
-                <Bundle load={List}>
-                  {(List) => <List/>}
-                </Bundle>
+                <List/>
               )}/>
               < Route location={location} render={() => (
                 <App>
                   <Route location={location} exact path="/about" render={() => (
-                    <Bundle load={About}>
-                      {(About) => <About/>}
-                    </Bundle>
+                    <About/>
                   )}/>
                   <Route location={location} path="/other" render={() => (
-                    <Bundle load={Other}>
-                      {(Other) => <Other/>}
-                    </Bundle>
+                    <Other/>
                   )}/>
                   <Route location={location} path="/fuck" render={() => (
                     <Redirect to="/list"/>

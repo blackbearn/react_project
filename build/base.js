@@ -77,28 +77,24 @@ module.exports = {
     new HappyPack({
       id: 'eslint',
       threadPool: happyThreadPool,
-      cache: true,
       verbose: true,
       loaders: ['eslint-loader']
     }),
     new HappyPack({
       id: 'js',
       threadPool: happyThreadPool,
-      cache: true,
       verbose: true,
       loaders: ['babel-loader']
     }),
     new HappyPack({
       id: 'less',
       threadPool: happyThreadPool,
-      cache: true,
       verbose: true,
       loaders: ['css-loader', 'postcss-loader', 'less-loader']
     }),
     new HappyPack({
       id: 'css',
       threadPool: happyThreadPool,
-      cache: true,
       verbose: true,
       loaders: ['css-loader', 'postcss-loader']
     }),

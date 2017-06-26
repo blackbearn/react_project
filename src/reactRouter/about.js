@@ -8,7 +8,10 @@ class About extends Component {
   render () {
     console.log(this.props);
     return (
-      <div style={{ background: 'blue' }}>about</div>
+      <div style={{ background: 'blue' }}>
+        <i className="iconfont">&#xe649;</i>
+        about
+      </div>
     );
   }
 }

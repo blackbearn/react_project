@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../style/main.less';
 const App = () => {
   return (
     <section>
